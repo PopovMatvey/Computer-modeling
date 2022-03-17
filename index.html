@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабараторная работа №1</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Обнуление стилей -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Стили страницы -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <nav>
+                    <ul class="d-flex col-12 justify-content-around align-items-center">
+                        <li><a class="nav-item" href="index.html">Лаба №1</a> </li>
+                        <li><a class="nav-item" href="lab2.html">Лаба №2</a></li>
+                        <li><a class="nav-item" href="lab3.html">Лаба №3</a></li>
+                        <li><a class="nav-item" href="lab4.html">Лаба №4</a></li>
+                        <li><a class="nav-item" href="#">Лаба №5</a></li>
+                        <li><a class="nav-item" href="#">Лаба №6</a></li>
+                        <li><a class="nav-item" href="#">Лаба №7</a></li>
+                        <li><a class="nav-item" href="#">Лаба №8</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Основной блок -->
+    <main>
+        <div class="container">
+            <div class="row">
+                <h1 class="text-center my-2">
+                    Лабораторная работа №1 <br>
+                    Изучение базовых генераторов<br>
+                    псевдослучайных чисел
+                </h1>
+                <div class="task my-5">
+                    <span>
+                        Задание: Для заданного объёма выборки и числовых участков разбиения интервалов [0; 1) <br>
+                        &nbsp;&nbsp;&nbsp; 1) Построить гистограмму частот и статистическую функцию распределения <br>
+                        Подсчитать: <br>
+                        &nbsp;&nbsp;&nbsp;1) Оценку мат. ожидания; <br>
+                        &nbsp;&nbsp;&nbsp;2) Дисперсию; <br>
+                        &nbsp;&nbsp;&nbsp;3) Второго и третьего моментов <br>
+                        Дано:<br>
+                        &nbsp;&nbsp;&nbsp; Вариант №9, <br>
+                        &nbsp;&nbsp;&nbsp;Тип датчика: Смешанный<br>
+                        &nbsp;&nbsp;&nbsp;Начальные данные: y - любое<br>
+                        &nbsp;&nbsp;&nbsp;объём выборки : 4000<br>
+                        &nbsp;&nbsp;&nbsp;Число участков разбиения : 16<br>
+                    </span>
+                </div>
+                <div class="gistagramm col-12">
+                    <h2 class="text-center my-3">Гистограмма</h2>
+
+                    <canvas id="FirstHistogramm"></canvas>
+                    <legend for="FirstHistogramm"></legend>
+
+
+                </div>
+                <div class="graf-function col-12">
+                    <h2 class="text-center my-3">Статистическая функция</h2>
+                    <canvas id="SecondHistogramm"></canvas>
+                    <legend for="SecondHistogramm"></legend>
+                </div>
+                <div class="graffic col-12">
+                    <h2 class="text-center my-3">График функции</h2>
+                    <div id="content" align="center">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="results col-12 ">
+                    <h2 class="text-center my-3">Результаты</h2>
+                    <div
+                        class="results-numbers col-12 d-xl-flex d-block justify-content-between align-items-center mx-auto my-3">
+                        <div class="math-wait col-xl-2 col-6 text-center  mx-auto my-3">
+                            <span class="math-wait_name">мат. ожидание</span>
+                            <span class="math-wait_number ">0.0000</span>
+                        </div>
+                        <div class="dispercion col-xl-2 col-6 text-center  mx-auto my-3">
+                            <span class="dispertion_name">Дисперсия</span>
+                            <span class="dispertion_number">0.0000</span>
+                        </div>
+                        <div class="second-moment col-xl-2 col-6 text-center mx-auto my-3">
+                            <span class="second-moment_name">Второй момент</span>
+                            <span class="second-moment_number">0</span>
+                        </div>
+                        <div class="third-moment col-xl-2 col-6 text-center mx-auto my-3">
+                            <span class="third-moment_name">Третий момент</span>
+                            <span class="third-moment_number">0</span>
+                        </div>
+                        <div class="function-raspr col-xl-2 col-6 text-center mx-auto my-3">
+                            <span class="function-rapr_name">Функция распределения</span>
+                            <span class="function-raspr_number">Равновероятное распределение</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main><!-- Jquery -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+
+    <!-- Скрипт сраницы -->
+    <script src="assets/js/lab1/script.js"></script>
+
+    <!-- Первая гистограмма -->
+    <script src="assets/js/lab1/gistagramma.js"></script>
+    <!-- Втоая гистограмма -->
+    <script src="assets/js/lab1/gistagrammaSecond.js"></script>
+</body>
+
+</html>

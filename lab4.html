@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №4</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Обнуление стилей -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Стили страницы -->
+    <link rel="stylesheet" href="assets/css/lab4.css">
+
+</head>
+
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <nav>
+                    <ul class="d-flex col-12 justify-content-around align-items-center">
+                        <li><a class="nav-item" href="index.html">Лаба №1</a> </li>
+                        <li><a class="nav-item" href="lab2.html">Лаба №2</a></li>
+                        <li><a class="nav-item" href="lab3.html">Лаба №3</a></li>
+                        <li><a class="nav-item" href="lab4.html">Лаба №4</a></li>
+                        <li><a class="nav-item" href="#">Лаба №5</a></li>
+                        <li><a class="nav-item" href="#">Лаба №6</a></li>
+                        <li><a class="nav-item" href="#">Лаба №7</a></li>
+                        <li><a class="nav-item" href="#">Лаба №8</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <h1 class="text-center my-3">
+                    Лабораторная работа №4 <br>
+                    Генерирование случайных
+                    величин с нормальным законом распределения
+
+                </h1>
+                <div class="task my-5">
+                    <span>
+                        Составить подпрограмму генерирования случайных величин с
+                        нормальным законом распределения методом, основанным на
+                        центральной предельной теореме, а также методом, определенным в
+                        соответствии с вариантом задания (табл. 4). <br>
+                        1) По полученной с помощью подпрограммы выборке построить и
+                        проанализировать гистограмму
+                        частот и статистическую функцию распределения <br>
+                        2) оценить
+                        матожидание и дисперсию случайной величины. <br>
+                        3) Соответствие
+                        эмпирических данных теоретическому распределению проверить с
+                        помощью критерия Пирсона или критерия Колмогорова. <br> Объем
+                        выборки случайных величин не менее 1000.<br> Количество интервалов
+                        разбиения k = 15 или k = 25.<br> Теоретическая часть для данной
+                        лабораторной работы представлена в учебнике [1] на стр. 76–83.
+                    </span>
+                    <img src="assets/img/varLabFouth.png" class="img my-3" alt="">
+                </div>
+                <div class="gistogramma border my-3 border-dark">
+                    <h2 class="text-center">Гистограмма частот</h2>
+                    <canvas id="FirstHistogramm"></canvas>
+                    <!-- <legend for="FirstHistogramm"></legend> -->
+                </div>
+                <div class="stst-function border border-dark">
+                    <h2 class="text-center">Статистическая функция распределения</h2>
+                    <div id="content" align="center">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="params border border-dark">
+                    <h2 class="text-center">Параметры</h2>
+                    <div class="params_val d-flex justify-content-around">
+                        <div class="math-waiting text-center">
+                            <span class="math-waiting__name">Мат ожидание</span> <br>
+                            <span class="math-waiting__value"></span>
+                        </div>
+                        <div class="dispercion text-center">
+                            <span class="dispercion__name">Дисперсия</span> <br>
+                            <span class="dispercion__value"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="kritKolm border border-dark">
+                    <!-- <h2 class="text-center my-3">Критерий Пирсона</h2>
+                    <div class="condition-krit_Pirson co-5 mx-auto">
+                        <div class="sravn-krit-Pirson d-flex justify-content-around">
+                            <span class="XiCv_value"></span>
+                            <img src="assets/img/XiCv.png" alt="">
+                            <span class="sravn-krit-Pirson_chart">
+                                < </span>
+                                    <img src="assets/img/XiCvTabl.png" alt="">
+                                    <span class="XiCvTabl_value"></span>
+                        </div>
+                        <span class="answer-kri-Pirson my-3 d-block text-center">Гипотеза подтверждается</span>
+                    </div> -->
+                    <h2 class="text-center">Критерий Колмогорова</h2>
+                    <div class="condition-krit_Kolm co-5 mx-auto">
+                        <div class="sravn-krit-Kolm d-flex justify-content-around">
+                            <span class="D_value"></span>
+                            <span>D</span>
+                            <span class="sravn-krit-Kolm_chart">
+                                < </span>
+
+                                    <span>D табл</span>
+                                    <span class="d_value"></span>
+                        </div>
+                        <span class="answer-kri-Kolm my-3 d-block text-center">Гипотеза подтверждается</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Jquery -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <!-- Скрипт страницы -->
+    <script src="assets/js/lab4/script.js"></script>
+    <!-- Гистограмма -->
+    <script src="assets/js/lab4/gistagramma.js"></script>
+</body>
+
+</html>
