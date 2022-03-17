@@ -410,7 +410,7 @@ const LEFT_X_VALUE = -3;
 
 const ITEGRAL_FUNCTION = integrirFunction(countingMathWaiting, LEFT_X_VALUE, sumNormlRulArray);
 
-sgetIOnN(iOnN);                              // Расчёт i/n
+getIOnN(iOnN);                              // Расчёт i/n
 getISubOneOnN(iSubOneOnN);                  // Расччёт (i-1)/n
 countDplus(dPlus, iOnN, sumNormlRulArray);
 arraySort(dPlus);

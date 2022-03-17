@@ -52,7 +52,7 @@ function getRandomValue(arrayFirst, arraySecond, mathWait, middleSqwOtkl, n) {
 
     for (let i = 0; i < n; i++) {
         s = 0.0;
-     
+
         for (let j = 0; j < m; j++) {
             r = Math.random();
             s += Math.log(r) / (p + j);
@@ -68,7 +68,7 @@ function getRandomValueSecond(arrayFirst, mathWait, middleSqwOtkl, n) {
 
     for (let i = 0; i < n; i++) {
         r = Math.random();
-        arrayFirst[i] = b * Math.pow(-Math.log(r), 1 / c);
+        arrayFirst[i] = (b * Math.pow(-Math.log(r), 1 / c)) ;
     }
 }
 
@@ -361,9 +361,9 @@ function getpAmountValue(array, intervAmount, vib, rightBoardForNormFunction, le
 
 // Переключаем эти две функции для проверки одного задания
 
-getRandomValue(arrayNormalRasprX, arrayNormalRasprY, MATH_WAITING, DISPERTION, SAMPLE_SIZE);
+// getRandomValue(arrayNormalRasprX, arrayNormalRasprY, MATH_WAITING, DISPERTION, SAMPLE_SIZE);
 
-// getRandomValueSecond(arrayNormalRasprX, MATH_WAITING, DISPERTION, SAMPLE_SIZE);
+getRandomValueSecond(arrayNormalRasprX, MATH_WAITING, DISPERTION, SAMPLE_SIZE);
 
 
 
@@ -394,6 +394,8 @@ getSumStatFunction(sumStatFunction, randomAmountArray);
 
 getFuncNormlRule(sumNormlRulArray, randomAmountArray);
 
+
+console.log(arrayNormalRasprX);
 
 let countingMathWaiting = getMathWaiting(arrayNormalRasprX);
 let countingDispircion = getDispersion(countingMathWaiting, arrayNormalRasprX);
