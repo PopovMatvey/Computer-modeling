@@ -68,7 +68,7 @@ function getRandomValueSecond(arrayFirst, mathWait, middleSqwOtkl, n) {
 
     for (let i = 0; i < n; i++) {
         r = Math.random();
-        arrayFirst[i] = (b * Math.pow(-Math.log(r), 1 / c)) ;
+        arrayFirst[i] = (b * Math.pow(-Math.log(r), 1 / c)) / (b * 3);
     }
 }
 
@@ -395,8 +395,6 @@ getSumStatFunction(sumStatFunction, randomAmountArray);
 getFuncNormlRule(sumNormlRulArray, randomAmountArray);
 
 
-console.log(arrayNormalRasprX);
-
 let countingMathWaiting = getMathWaiting(arrayNormalRasprX);
 let countingDispircion = getDispersion(countingMathWaiting, arrayNormalRasprX);
 
@@ -489,7 +487,7 @@ function write(arg) {
 function arraySort(array) {
     array.sort(
         function (a, b) {
-            return a - b;
+            return (a - b);
         }
     );
 }
