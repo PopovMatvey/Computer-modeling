@@ -45,40 +45,31 @@ let lyambda = 0;            // Лямбда
 
 
 
-// Общий генератор согласну варианту
+// Генератор для бета-распределения
 function getRandomValue(arrayFirst, arraySecond, mathWait, middleSqwOtkl, n) {
-    let i = 0;
+    let p = 2;
+    let m = 5;
 
-    while (i < n) {
-        r1 = Math.random();
-        r2 = Math.random();
-
-        u1 = -1 + 2 * r1;
-        u2 = -1 + 2 * r2;
-        s = u1 * u1 + u2 * u2;
-
-        if (s <= 1) {
-            arrayFirst[i] = u1 * Math.sqrt(-2 * Math.log(s) / s);
-            arrayFirst[i] = mathWait + arrayFirst[i] * Math.sqrt(middleSqwOtkl);
-            i++;
+    for (let i = 0; i < n; i++) {
+        s = 0.0;
+     
+        for (let j = 0; j < m; j++) {
+            r = Math.random();
+            s += Math.log(r) / (p + j);
         }
+        arrayFirst[i] = Math.exp(s);
     }
 }
 
-
-// Общий генератор
+// Генератор для распределения Вейбула
 function getRandomValueSecond(arrayFirst, mathWait, middleSqwOtkl, n) {
+    let c = 2;
+    let b = 5;
+
     for (let i = 0; i < n; i++) {
-        s = 0;
-
-        for (let j = 0; j < 12; j++) {
-            r = Math.random();
-            s += r;
-        }
-        arrayFirst[i] = s - 6;
-        arrayFirst[i] = mathWait + arrayFirst[i] * Math.sqrt(middleSqwOtkl);
+        r = Math.random();
+        arrayFirst[i] = b * Math.pow(-Math.log(r), 1 / c);
     }
-
 }
 
 
@@ -296,10 +287,14 @@ function integrirFunction(mathWait, leftX, array) {
     let = integrFunction = [];
 
     for (let i = 1; i < SAMPLE_SIZE; i++) {
+
         if ((array[i] > leftX) && (array[i] < mathWait)) {
             integrFunction[i] = array[i] - array[i - 1];
+
         }
     }
+
+
 
     return integrFunction;
 }
@@ -333,7 +328,6 @@ function countXiCv(val, amountArray, verPopSluchVal, intervAmount) {
     for (let i = 0; i < intervAmount; i++) {
         val = ((amountArray[i] - verPopSluchVal[i]) * (amountArray[i] - verPopSluchVal[i])) / verPopSluchVal[i];
         sumVal = sumVal + val;
-
     }
     return sumVal;
 }
@@ -364,11 +358,14 @@ function getpAmountValue(array, intervAmount, vib, rightBoardForNormFunction, le
     }
 }
 
+
 // Переключаем эти две функции для проверки одного задания
 
 getRandomValue(arrayNormalRasprX, arrayNormalRasprY, MATH_WAITING, DISPERTION, SAMPLE_SIZE);
 
 // getRandomValueSecond(arrayNormalRasprX, MATH_WAITING, DISPERTION, SAMPLE_SIZE);
+
+
 
 arraySort(arrayNormalRasprX);
 
@@ -397,6 +394,7 @@ getSumStatFunction(sumStatFunction, randomAmountArray);
 
 getFuncNormlRule(sumNormlRulArray, randomAmountArray);
 
+
 let countingMathWaiting = getMathWaiting(arrayNormalRasprX);
 let countingDispircion = getDispersion(countingMathWaiting, arrayNormalRasprX);
 
@@ -410,7 +408,7 @@ const LEFT_X_VALUE = -3;
 
 const ITEGRAL_FUNCTION = integrirFunction(countingMathWaiting, LEFT_X_VALUE, sumNormlRulArray);
 
-sgetIOnN(iOnN);                              // Расчёт i/n
+getIOnN(iOnN);                              // Расчёт i/n
 getISubOneOnN(iSubOneOnN);                  // Расччёт (i-1)/n
 countDplus(dPlus, iOnN, sumNormlRulArray);
 arraySort(dPlus);
@@ -431,7 +429,6 @@ determAnswerKolm(LYANBDA, dTabl);
 
 // Получить количество чисел на каждом интервале
 getpAmountValue(amountArray, AMOUNT_INTERVALS, arrayNormalRasprX, randomRightArray, randomLeftArray);
-
 /*ГРАФИК ФУНКЦИИ*/
 
 //Готовим диаграмму

@@ -91,6 +91,7 @@ lasrElementDSub = getLastElementarray(dSub);
 maxD = getMaxValue(lastElementDPlus, lasrElementDSub);
 
 dTabl = 0.964;
+
 writeInPage(maxD * Math.sqrt(n), ".D_value");
 writeInPage(dTabl, ".d_value");
 determAnswerKolm(maxD, dTabl);
@@ -99,6 +100,7 @@ determAnswerKolm(maxD, dTabl);
 //Критерий серий нулей
 getМibForKritZeros(vibForKritZeros, a, mu, m);
 getArrayKitSerZeros(kritSerZeros, vibForKritZeros, 0.5);
+
 amountSeries = getAmountSeriyZeros(kritSerZeros);
 amountZeros = getAmountZeros(kritSerZeros);
 verPolZero = getVerPolZero(amountZeros, n);
@@ -126,6 +128,7 @@ function arraySort(array) {
 // Получить количество интервалов
 function getAmountInterv(n, delta) {
     intervAmount = (n / delta);
+
     if (intervAmount % 2 != 0) {
         intervAmount = intervAmount - intervAmount % 2
     }
@@ -135,6 +138,7 @@ function getAmountInterv(n, delta) {
 function getpSluchValue(array, intervAmount) {
     for (let i = 0; i < intervAmount; i++) {
         array[i] = 0;
+
         for (let j = 0; j < n; j++) {
             if ((x[j] < rightBoardForNormFunction[i]) & (x[j] >= leftBoardForNormFunction[i])) {
                 array[i] = array[i] + 1;
@@ -174,6 +178,7 @@ function getDiffrentRightArrya(array, a) {
 // Получить количество интервалов
 function getAmountInterv(n, delta) {
     intervAmount = (n / delta);
+
     if (intervAmount % 2 != 0) {
         intervAmount = intervAmount - intervAmount % 2
     }
@@ -182,6 +187,7 @@ function getAmountInterv(n, delta) {
 // Генератор псевдослучайных чисел
 function Rnd(a, mu, m) {
     y = (a * y + mu) % m;
+
     return y / m;
 }
 
@@ -201,7 +207,6 @@ function getPseudoRaundomNumber(a, mu, m) {
 function getVerPopSluchVal(array, k, rightBoardForNormFunction, leftBoardForNormFunction) {
     for (let i = 0; i < k; i++) {
         array[i] = rightBoardForNormFunction[i] - leftBoardForNormFunction[i];
-        // console.log(array[i]);
     }
 }
 
@@ -222,13 +227,12 @@ function getWaitAmountVal(array, intervAmount, n, verPopSluchVal) {
 // Подсчёт "хи-квадрат" для критерия Пирсона
 function countXiCv(val, amountArray, verPopSluchVal, intervAmount) {
     let sumVal = 0;
+
     for (let i = 0; i < intervAmount; i++) {
         val = ((amountArray[i] - verPopSluchVal[i]) * (amountArray[i] - verPopSluchVal[i])) / verPopSluchVal[i];
         sumVal = sumVal + val;
-        console.log(((amountArray[i] - verPopSluchVal[i]) * (amountArray[i] - verPopSluchVal[i])))
-        // console.log(verPopSluchVal[i]);
-        // console.log(amountArray[i]);
     }
+
     return sumVal;
 }
 
@@ -251,6 +255,7 @@ function determAnswerPirson(XiCv, mearDifr) {
 // Расчёт i/n
 function getIOnN(array) {
     let j = 0;
+
     for (let i = 0; i < n; i++) {
         j = i + 1;
         array[i] = j / n;
@@ -281,6 +286,7 @@ function countDsub(arrayDSub, arrayISubOneOnN, arrayX) {
 // Получить последний элемент массива
 function getLastElementarray(array) {
     let lastElement = 0;
+
     for (let i = 0; i < n; i++) {
         lastElement = array[n - 1];
     }
@@ -295,7 +301,7 @@ function getMaxValue(firstVal, secondVals) {
     } else if (firstVal < secondVals) {
         return secondVals;
     } else {
-        return;
+        return undefined;
     }
 }
 
@@ -368,6 +374,7 @@ function getVerPolZero(valFirt, valSecond) {
 //Получить мат. ожидание для  серии нулей
 function getMathWaitForSetiyZero(verPolZero) {
     let mathWaiting = 0;
+
     mathWaiting = ((1 - verPolZero) / verPolZero) + 1;
 
     return mathWaiting;
@@ -377,6 +384,7 @@ function getMathWaitForSetiyZero(verPolZero) {
 //Получить дисперсию для  серии нулей
 function getDispercionForSeriyZeros(verPolZero) {
     let Disp = 0;
+
     Disp = (1 - verPolZero) / (verPolZero * verPolZero);
 
     return Disp;
@@ -386,7 +394,6 @@ function getDispercionForSeriyZeros(verPolZero) {
 //Получить оценку средней серии
 function getMathWaitingMeadkeSeriy(amountZeros, amountSeriyZeros) {
     return amountZeros / amountSeriyZeros;
-
 }
 
 //Получить нижнее критическое значение
@@ -419,6 +426,7 @@ function getDispersion() {
     for (let i = 0; i < n; i++) {
         sumDisp = sumDisp + (x[i] - mathWait) * (x[i] - mathWait);
     }
+
     dispersion = sumDisp / (n - 1);
     $('.dispertion_number')[0].innerHTML = dispersion;
 }
@@ -427,9 +435,11 @@ function getDispersion() {
 function getBeginnerMoment(step, outputField) {
     let summSecondmoment = 0;   // Начальный момент
     let beginnerMoment = 0;     // Сумма значений, необходимая для подсчёта начального момента 
+    
     for (let i = 0; i < n; i++) {
         summSecondmoment = summSecondmoment + Math.pow(x[i], step);
     }
+
     beginnerMoment = summSecondmoment / n;
     $(outputField)[0].innerHTML = beginnerMoment;
 }

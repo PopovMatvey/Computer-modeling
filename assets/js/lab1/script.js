@@ -85,6 +85,7 @@ function arraySort(array) {
 function getpSluchValue(intervAmount) {
     for (let i = 0; i < intervAmount; i++) {
         amountArray[i] = 0;
+        
         for (let j = 0; j < n; j++) {
             if ((x[j] < rightBoardForNormFunction[i]) & (x[j] >= leftBoardForNormFunction[i])) {
                 amountArray[i] = amountArray[i] + 1;
@@ -109,6 +110,7 @@ function getDiffrentRightArrya(array, a) {
 // Получить количество интервалов
 function getAmountInterv(n, delta) {
     intervAmount = (n / delta);
+
     if (intervAmount % 2 != 0) {
         intervAmount = intervAmount - intervAmount % 2
     }
@@ -145,6 +147,7 @@ function getLeftArrya(array, a) {
 function getEmpireFunction() {
     for (let i = 0; i < k; i++) {
         empireFunction[i] = 0;
+
         for (let j = 0; j < n; j++) {
             if ((x[j] < diffrentRightArray[i])) {
                 sumEmpireFunction = sumEmpireFunction + empireFunction[i] + 1;
@@ -166,6 +169,7 @@ function fillFirstGistogrammData(keys, pSluchValue, k) {
     for (let i = 0; i < k; i++) {
         let key = keys[i];
         let value = pSluchValue[i];
+
         firstHistogrammData[key] = value;
     }
 }
@@ -177,8 +181,8 @@ function fillSecondGistogrammData(keys, empireFunction, k) {
     for (let i = 0; i < k; i++) {
         let key = empireFunction[i];
         let value = empireFunction[i];
-        secondHistogrammData[key] = value;
 
+        secondHistogrammData[key] = value;
     }
 }
 
@@ -201,6 +205,7 @@ function getMathWaiting() {
     for (let i = 0; i < n; i++) {
         summNumbers = summNumbers + x[i];
     }
+
     mathWait = summNumbers / n;
     $(".math-wait_number")[0].innerHTML = mathWait;
 }
@@ -210,6 +215,7 @@ function getDispersion() {
     for (let i = 0; i < n; i++) {
         sumDisp = sumDisp + (x[i] - mathWait) * (x[i] - mathWait);
     }
+
     dispersion = sumDisp / (n - 1);
     $('.dispertion_number')[0].innerHTML = dispersion;
 }
@@ -222,6 +228,7 @@ function getBeginnerMoment(step, outputField) {
     for (let i = 0; i < n; i++) {
         summSecondmoment = summSecondmoment + Math.pow(x[i], step);
     }
+
     beginnerMoment = summSecondmoment / n;
     $(outputField)[0].innerHTML = beginnerMoment;
 }
