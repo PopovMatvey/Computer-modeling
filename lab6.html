@@ -43,7 +43,7 @@
                     Моделирование методом Монте-Карло
 
                 </h1>
-                <div class="task my-5">
+                <div class="task my-5 py-2">
                     <span>
                         Составить программу решения задачи, определенной в
                         соответствии с вариантом задания, с помощью машинного
@@ -56,46 +56,26 @@
                         Теоретическая часть для данной лабораторной работы представлена в
                         учебнике [1] на стр. 94–108 и 110–117<br>
                     </span>
-                    <img src="assets/img/varLabSixth.png" class="img my-3" alt="">
+                    <img src="assets/img/varLabSixth.png" class="img my-5" alt="">
                 </div>
-                <!-- <div class="gistogramma border my-3 border-dark">
-                    <h2 class="text-center">Гистограмма частот</h2>
-                    <canvas id="FirstHistogramm"></canvas>
-                </div>
-                <div class="stst-function border border-dark">
-                    <h2 class="text-center">Статистическая функция распределения</h2>
-                    <div id="content" align="center">
-                        <canvas id="myChart"></canvas>
-                    </div>
-                </div>
-                <div class="params border border-dark">
-                    <h2 class="text-center">Параметры</h2>
-                    <div class="params_val d-flex justify-content-around">
-                        <div class="math-waiting text-center">
-                            <span class="math-waiting__name">Мат ожидание</span> <br>
-                            <span class="math-waiting__value"></span>
-                        </div>
-                        <div class="dispercion text-center">
-                            <span class="dispercion__name">Дисперсия</span> <br>
-                            <span class="dispercion__value"></span>
+                <div class="decision-block col-12 py-5">
+                    <div class="dov-int py-5">
+                        <h3 class="text-center my-3">Доверительный интервал</h3>
+                        <div class="dov-int-block d-flex justify-content-around">
+                            <span>[</span>
+                            <span class="left-border"></span>
+                            <span>:</span>
+                            <span class="right-border"></span>
+                            <span>]</span>
                         </div>
                     </div>
-                </div>
-                <div class="kritKolm border border-dark">
-                    <h2 class="text-center">Критерий Колмогорова</h2>
-                    <div class="condition-krit_Kolm co-5 mx-auto">
-                        <div class="sravn-krit-Kolm d-flex justify-content-around">
-                            <span class="D_value"></span>
-                            <span>D</span>
-                            <span class="sravn-krit-Kolm_chart">
-                                < </span>
-
-                                    <span>D табл</span>
-                                    <span class="d_value"></span>
-                        </div>
-                        <span class="answer-kri-Kolm my-3 d-block text-center">Гипотеза подтверждается</span>
+                    <div class="accuracy-propability col-12 text-center py-5">
+                        <span class="accuracy-propability_value"></span>
                     </div>
-                </div> -->
+                    <div class="conclusion col-12 text-center">
+                        <span class="conclusion-value"></span>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -106,9 +86,7 @@
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <!-- Скрипт страницы -->
-    <script src="assets/js/lab5/script.js"></script>
-    <!-- Гистограмма -->
-    <script src="assets/js/lab5/gistagramma.js"></script>
+    <script src="assets/js/lab6/script.js"></script>
 </body>
 
 </html>
