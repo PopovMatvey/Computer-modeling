@@ -68,7 +68,7 @@ function getRandomValueSecond(arrayFirst, mathWait, middleSqwOtkl, n) {
 
     for (let i = 0; i < n; i++) {
         r = Math.random();
-        // Знаменатель такой, поскольку нам 
+        // наменатель такой, поскольку нам 
         // необходимо смаштабировать выборку, для 
         // получения корректных результатов
         arrayFirst[i] = (b * Math.pow(-Math.log(r), 1 / c)) / (b * 3);

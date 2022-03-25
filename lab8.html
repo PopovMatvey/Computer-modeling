@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №8</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Обнуление стилей -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!-- Стили страницы -->
+    <link rel="stylesheet" href="assets/css/lab8.css">
+
+</head>
+
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <nav>
+                    <ul class="d-flex col-12 justify-content-around align-items-center">
+                        <li><a class="nav-item" href="index.html">Лаба №1</a> </li>
+                        <li><a class="nav-item" href="lab2.html">Лаба №2</a></li>
+                        <li><a class="nav-item" href="lab3.html">Лаба №3</a></li>
+                        <li><a class="nav-item" href="lab4.html">Лаба №4</a></li>
+                        <li><a class="nav-item" href="lab5.html">Лаба №5</a></li>
+                        <li><a class="nav-item" href="lab6.html">Лаба №6</a></li>
+                        <li><a class="nav-item" href="lab7.html">Лаба №7</a></li>
+                        <li><a class="nav-item" href="lab8.html">Лаба №8</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <h1 class="text-center my-3">
+                    Лабораторная работа №8 <br>
+                    Тактическое планирование
+                    эксперимента
+
+                </h1>
+                <div class="task my-5 py-2">
+                    <span>
+                        Каждое задание предполагает разработку программной
+                        имитационной модели случайного блуждания, с помощью которой
+                        могут быть получены необходимые результаты по двум частям
+                        лабораторной работы. <br>
+                        1) В первой части работы выполняется
+                        планирование и получение результатов эксперимента по оценке
+                        среднего значения указанного параметра с заданной точностью при
+                        заданной достоверности . <br>
+                        2) Во второй части выполняется планирование и
+                        получение результатов эксперимента для оценки с заданной точностью
+                        при заданной достоверности выборочной дисперсии указанного
+                        параметра. <br>
+                        В процессе проведения пробного эксперимента при
+                        планировании строится статистическое распределение исследуемого
+                        параметра и определяется целесообразность аппроксимации этого
+                        распределения нормальным законом. В зависимости от этого
+                        выбирается подход для определения объема эксперимента. Варианты
+                        заданий берутся из лабораторной работы №7
+                        <!-- Каждое задание предполагает разработку программной
+                        имитационной модели случайного блуждания, с помощью которой
+                        могут быть получены необходимые результаты. <br>
+                        1) В результате
+                        проведения определенного количества экспериментов требуется
+                        построить статистическое распределение исследуемого параметра
+                        20
+                        (гистограмму и эмпирическую функцию распределения) <br>
+                        2) определить
+                        целесообразность аппроксимации полученного распределения одним
+                        из известных законов (нормальным, экспоненциальным,
+                        логарифмически-нормальным и др.). <br>
+                        Теоретическая часть для данной
+                        лабораторной работы представлена в учебнике [1] на стр. 117–124. -->
+                    </span>
+                    <img src="assets/img/varLabSeventh.png" class="img my-5" alt="">
+                </div>
+                <div class="gistogramma border my-3 border-dark">
+                    <h2 class="text-center">Гистограмма частот</h2>
+                    <canvas id="FirstHistogramm"></canvas>
+                </div>
+                <div class="stst-function border border-dark">
+                    <h2 class="text-center">Статистическая функция распределения</h2>
+                    <div id="content" align="center">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="estimation-mathwaiting my-3 py-3 border border-dark">
+                    <h2 class="text-center">Оценка мат. ожидания</h2>
+                    <span class="estimation-mathwaiting_value text-center d-block"></span>
+                </div>
+                <div class="estimation-dispertion my-3 py-3 border border-dark">
+                    <h2 class="text-center">Оценка дисперсии</h2>
+                    <span class="estimation-dispertion_value text-center d-block"></span>
+                </div>
+                <div class="min-size-choise my-3 py-3 border border-dark">
+                    <h2 class="text-center">Количество опытов</h2>
+                    <span class="min-size-choise_value text-center d-block"></span>
+                </div>
+                <div class="min-size-choise my-3 py-3 border border-dark">
+                    <h2 class="text-center">Количество опытов без заданной точности</h2>
+                    <span class="min-size-choise_with_acc__value text-center d-block"></span>
+                </div>
+                <div class="min-size-choise my-3 py-3 border border-dark">
+                    <h2 class="text-center">Количество опытов по оценивании дисперсии совокупности</h2>
+                    <span class="min-size-choise_by_sqo__value text-center d-block"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Jquery -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <!-- Скрипт страницы -->
+    <script src="assets/js/lab8/script.js"></script>
+    <!-- Гистограмма -->
+    <script src="assets/js/lab5/gistagramma.js"></script>
+</body>
+
+</html>
